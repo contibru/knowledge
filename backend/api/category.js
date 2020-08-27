@@ -126,7 +126,7 @@ module.exports = (app) => {
 
     const getTree = (req, res) => {
         app.db('categories')
-            .then(categories => res.json(toTree(categories)))
+            .then(categories => res.json(toTree(withPath(categories))))
             .catch(err => res.status(500).send(err))
     }
 

@@ -3,7 +3,7 @@ exports.up = function (knex) {
 		table.increments('id').primary()
 		table.string('name').notNullable()
 		table.string('description', 1000).notNullable()
-		table.string('imageurl', 1000).notNullable()
+		table.string('imageurl', 1000)
 		table.binary('content').notNullable()
 		table.integer('userId', 10).unsigned().references('id').inTable('users')
 		table
