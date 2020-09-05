@@ -10,22 +10,26 @@ module.exports = app => {
             Stat
         } = app.api.stat
 
+        const stat = new Stat({
+            users: usersCount['count(`id`)'],
+            categories: categoriesCount['count(`id`)'],
+            articles: articlesCount['count(`id`)'],
+            createdAt: new Date()
+        })
+
         const lastStat = await Stat.findOne({}, {}, {
             sort: {
                 'createdAt': -1
             }
         })
 
-        const stat = new Stat({
-            users: usersCount.count,
-            categories: categoriesCount.count,
-            articles: articlesCount.count,
-            createdAt: new Date()
-        })
+        const changeUsers = !lastStat || stat.users !== lastStat.users
+        const changeCategories = !lastStat || stat.categories !== lastStat.categories
+        const changeArticles = !lastStat || stat.articles !== lastStat.articles
 
-        stat.save().then(() => console.log(' [Stats] Estatísticas atualizadas'))
-
-
+        if (changeUsers || changeCategories || changeArticles) {
+            stat.save().then(() => console.log('[Stats] Estatíticas atualizadas!'))
+        }
 
     })
 }

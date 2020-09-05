@@ -4,8 +4,6 @@ module.exports = app => {
         categories: Number,
         articles: Number,
         createdAt: Date
-
-
     })
 
     const get = (req, res) => {
@@ -22,8 +20,10 @@ module.exports = app => {
                 }
                 res.json(stat || defaultStat)
             })
+            .catch(err => {
+                console.log(err)
+            })
     }
-
 
     return {
         Stat,
