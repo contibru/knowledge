@@ -10,11 +10,9 @@
 </template>
 
 <script>
-import UserDropdown from "./UserDropdown";
-
 export default {
   name: "PageTitle",
-  props: ["icon", "main", "sub"]
+  props: ["icon", "main", "sub"],
 };
 </script>
 
@@ -29,5 +27,3 @@ export default {
   font-size: 1.3rem;
 }
 </style>
-
-

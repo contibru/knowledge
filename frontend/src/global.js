@@ -1,6 +1,4 @@
-import {
-    Vue
-} from "vue";
+import Vue from "vue";
 
 export const baseApiUrl = 'http://localhost:3000'
 
@@ -16,9 +14,4 @@ export function showError(e) {
     } else {
         Vue.toasted.global.defaultError()
     }
-}
-
-export default {
-    baseApiUrl,
-    showError
 }

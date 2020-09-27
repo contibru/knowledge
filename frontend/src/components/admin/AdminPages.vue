@@ -36,5 +36,3 @@ export default {
   padding: 20x;
 }
 </style>
-
-
